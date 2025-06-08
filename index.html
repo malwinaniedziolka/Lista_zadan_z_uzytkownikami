@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <title>Lista zadań</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <h1>Lista zadań</h1>
+  <h3>Dodaj nowe zadanie</h3>
+    <form class="form">
+        <div class="form-content">
+            <label>Nazwa zadania: </label>
+            <input class="form-input" type="text" id="task-name"/>
+        </div>
+        <div class="form-content">
+            <label>Opis: </label>
+            <input class="form-input" type="text" id="task-desc"/>
+        </div>
+        <div class="form-content">
+            <label>Nazwa użytkownika: </label>
+            <input class="form-input" type="text" id="task-user"/>
+        </div>
+        <button class="button" type="submit">Dodaj zadanie</button>
+    </form>
+    <h3>Zadania</h3>
+    <ul id="task-list"></ul>
+
+  <script src="app.js"></script>
+</body>
+</html>

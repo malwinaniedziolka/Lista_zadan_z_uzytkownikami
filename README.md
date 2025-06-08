@@ -1,1 +1,1 @@
-# Lista_zadan_z_uzytkownikami
+# Lista zadań z użytkownikami
