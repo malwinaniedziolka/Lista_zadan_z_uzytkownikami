@@ -2,28 +2,68 @@
 <html lang="pl">
 <head>
   <meta charset="UTF-8" />
-  <title>Lista zadań</title>
+  <title>Task Manager</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Lista zadań</h1>
-  <h3>Dodaj nowe zadanie</h3>
+  <h1>Task Manager</h1>
+  <h3 class="h1">Add new task</h3>
     <form class="form">
         <div class="form-content">
-            <label>Nazwa zadania: </label>
+            <label for="task-name">Name: </label>
             <input class="form-input" type="text" id="task-name"/>
         </div>
         <div class="form-content">
-            <label>Opis: </label>
+            <label for="task-desc">Description: </label>
             <input class="form-input" type="text" id="task-desc"/>
         </div>
         <div class="form-content">
-            <label>Nazwa użytkownika: </label>
+            <label for="task-user">Username: </label>
             <input class="form-input" type="text" id="task-user"/>
         </div>
-        <button class="button" type="submit">Dodaj zadanie</button>
+        <div class="form-content">
+            <label>Priority:</label>
+            <input type="radio" id="low" name="priority" value="Low" class="priority">
+            <label for="low">Low</label>
+            <input type="radio" id="medium" name="priority" value="Medium" class="priority">
+            <label for="medium">Medium</label>
+            <input type="radio" id="high" name="priority" value="High" class="priority">
+            <label for="high">High</label>
+        </div>
+        <div class="form-content">
+            <label>Category:</label>
+            <input type="radio" id="work" name="category" value="Work" class="category">
+            <label for="work">Work</label>
+            <input type="radio" id="hobby" name="category" value="Hobby" class="category">
+            <label for="hobby">Hobby</label>
+            <input type="radio" id="school" name="category" value="School" class="category">
+            <label for="school">School</label>
+            <input type="radio" id="private" name="category" value="Private" class="category">
+            <label for="private">Private</label>
+        </div>
+        <button class="button" type="submit">Add task</button>
     </form>
-    <h3>Zadania</h3>
+    <h3>Tasks</h3>
+    <label for="date">Date</label>
+    <select name="date" id="sort-date">
+      <option value="">Sort according to date</option>
+      <option value="newest">Newest to oldest</option>
+      <option value="oldest">Oldest to newest</option>
+    </select>
+    <label for="status">Status</label>
+    <select name="status" id="sort-status">
+      <option value="">Filter according to status</option>
+      <option value="pending">Pending</option>
+      <option value="done">Done</option>
+    </select>
+    <label for="priority">Priority</label>
+    <select name="priority" id="sort-priority">
+      <option value="">Filter according to priority</option>
+      <option value="low">Low</option>
+      <option value="medium">Medium</option>
+      <option value="high">High</option>
+    </select>
+
     <ul id="task-list"></ul>
 
   <script src="app.js"></script>
