@@ -48,12 +48,6 @@ class TaskManager{ //zarządzanie zadaniami, np. dodawanie, edytowanie, usuwanie
             task.status = 'Done';
         }
     }
-
-    SortTasks(){
-        const sorting = this.getAll();
-        sorting.sort((a, b) => new Date(b.date) - new Date(a.date)); 
-    }
-
 }
 
 const taskManager = new TaskManager();
@@ -113,16 +107,14 @@ function displayTask(task) {
     const sortDate = document.getElementById('sort-date');
     sortDate.addEventListener('change', () => {
         let sorting = taskManager.getTasks().slice();
+        taskList.innerHTML = '';
 
         if(sortDate.value == "newest"){
-            taskList.innerHTML = '';
             sorting.sort((a, b) => new Date(b.date) - new Date(a.date)); 
         }
         if(sortDate.value == "oldest"){
-            taskList.innerHTML = '';
             sorting.sort((a, b) => new Date(a.date) - new Date(b.date)); 
         }
-        taskList.innerHTML = '';
         sorting.forEach(displayTask);
     });
 
@@ -168,6 +160,33 @@ function displayTask(task) {
         }
     });
 
+    const sortCategory = document.getElementById('sort-category');
+    sortCategory.addEventListener('change', () => {
+        let sorting = taskManager.getTasks();
+        let filteredTasks;
+        taskList.innerHTML = '';
+
+        if(sortCategory.value == "work"){
+            filteredTasks = sorting.filter(task => task.category === "Work");
+            filteredTasks.forEach(displayTask);
+        }
+        if(sortCategory.value == "hobby"){
+            filteredTasks = sorting.filter(task => task.category === "Hobby");
+            filteredTasks.forEach(displayTask);
+        }
+        if(sortCategory.value == "school"){
+            filteredTasks = sorting.filter(task => task.category === "School");
+            filteredTasks.forEach(displayTask);
+        }
+        if(sortCategory.value == "private"){
+            filteredTasks = sorting.filter(task => task.category === "Private");
+            filteredTasks.forEach(displayTask);
+        }
+        if(sortCategory.value == ""){
+            sorting.forEach(displayTask);
+        }
+    });
+
     const doneBtn = li.querySelector('.done-btn');
     doneBtn.addEventListener('click', () => {
         taskManager.doneTask(task.id);
@@ -188,7 +207,7 @@ function displayTask(task) {
 
         document.querySelector('.h1').textContent = "Edit task";
         form.querySelector('button[type="submit"]').textContent = "Save changes";
-        });
+    });
 
     const deleteBtn = li.querySelector('.delete-btn');
     deleteBtn.addEventListener('click', () => {

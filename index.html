@@ -44,24 +44,28 @@
         <button class="button" type="submit">Add task</button>
     </form>
     <h3>Tasks</h3>
-    <label for="date">Date</label>
     <select name="date" id="sort-date">
       <option value="">Sort according to date</option>
       <option value="newest">Newest to oldest</option>
       <option value="oldest">Oldest to newest</option>
     </select>
-    <label for="status">Status</label>
     <select name="status" id="sort-status">
       <option value="">Filter according to status</option>
       <option value="pending">Pending</option>
       <option value="done">Done</option>
     </select>
-    <label for="priority">Priority</label>
     <select name="priority" id="sort-priority">
       <option value="">Filter according to priority</option>
       <option value="low">Low</option>
       <option value="medium">Medium</option>
       <option value="high">High</option>
+    </select>
+    <select name="category" id="sort-category">
+      <option value="">Filter according to category</option>
+      <option value="work">Work</option>
+      <option value="hobby">Hobby</option>
+      <option value="school">School</option>
+      <option value="private">Private</option>
     </select>
 
     <ul id="task-list"></ul>
